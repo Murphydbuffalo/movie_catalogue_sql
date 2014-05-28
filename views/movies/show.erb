@@ -9,7 +9,7 @@
 <h3> Cast </h3>
 <ul>
   <% @movie.each do |movie| %>
-    <li><a href="/actors/<%= movie["id"] %>"> <%= "#{movie["actor"]}" %> </a></li>
+    <li><%= "#{movie["character"]} - " %> <a href="/actors/<%= movie["id"] %>"> <%= movie["actor"] %> </a></li>
   <% end %>
 </ul>   
 

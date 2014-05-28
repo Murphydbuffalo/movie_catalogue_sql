@@ -8,3 +8,14 @@
      </ul>
   <% end %>
 </ul>  
+
+<nav>
+  <ul>
+    <li><a href="/movies?page=1"> Home </a></li> 
+    <% if @page > 1 %>
+      <li> <a href="/movies?page= <%= @page - 1 %>"> Previous Page </a></li>
+    <% end %>  
+    <li> <a href="/movies?page= <%= @page + 1 %>"> Next Page </a></li>
+    <li> <a href="/actors"> All Actors </a> </li>
+  </ul>
+</nav>
