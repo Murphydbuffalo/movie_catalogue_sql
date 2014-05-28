@@ -1,7 +1,6 @@
 require "sinatra"
 require "shotgun"
 require "pg"
-require "pry"
 
 def db_connect
   begin
@@ -59,8 +58,12 @@ get "/actors" do
   @page > 1 ? @offset_count = @page - 1 : @offset_count = 0
   query = params[:query] || ""
   @actors = db_connect do |conn| conn.exec(
-  	"SELECT name, id FROM actors
+  	"SELECT actors.name, actors.id, COUNT(movies.title) 
+  	 FROM actors
+  	 JOIN cast_members ON actors.id = cast_members.actor_id
+     JOIN movies ON movies.id = cast_members.movie_id
   	 WHERE name ILIKE '%#{query}%'
+  	 GROUP BY actors.id
   	 ORDER BY name 
   	 LIMIT 20
   	 OFFSET (20 * #{@offset_count})"
