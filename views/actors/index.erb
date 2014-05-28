@@ -1,5 +1,11 @@
 <h1> Welcome to the Movie Catalogue! </h1>
-<h2> Actors </h2>
+<h2> All Actors </h2>
+
+<form action="/actors" method="get">
+  <input id="query" name="query" type="text"> 
+  <input type="submit" value="Search Actors"> 
+</form>
+
 <ul>
   <% @actors.each do |actor| %>
     <li><a href="/actors/<%= actor["id"] %>"> <%= "#{actor["name"]}" %></a></li>

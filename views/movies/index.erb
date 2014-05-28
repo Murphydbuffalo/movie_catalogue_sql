@@ -1,11 +1,22 @@
 <h1> Welcome to the Movie Catalogue! </h1>
 <h2> All Movies </h2>
+
+<form action="/movies" method="get">
+  <input id="query" name="query" type="text"> 
+  <input type="submit" value="Search Movies"> 
+</form>
+
 <ul>
-  <% @movies.each do |movie| %>
+  <li> <a href="/movies?order=title"> Sort by Title </a> </li>
+  <li> <a href="/movies?order=year"> Sort by Release Date </a> </li>
+  <li> <a href="/movies?order=rating"> Sort by Rating </a> </li>
+</ul>
+<ul>
+  <% @movies.each do |movie| %> 
     <li><a href="/movies/<%= movie["id"] %>"> <%= movie["title"] %></a> - <%= movie["year"] %></li>
     <ul>
       <li><%= "#{movie["genre"]}  -  Rating:  #{movie["rating"]}/100" %> </li>
-     </ul>
+    </ul>
   <% end %>
 </ul>  
 
@@ -16,6 +27,6 @@
       <li> <a href="/movies?page= <%= @page - 1 %>"> Previous Page </a></li>
     <% end %>  
     <li> <a href="/movies?page= <%= @page + 1 %>"> Next Page </a></li>
-    <li> <a href="/actors"> All Actors </a> </li>
+    <li> <a href="/actors"> Actors </a> </li>
   </ul>
 </nav>
