@@ -12,4 +12,12 @@
   <% end %>
 </ul>
 
-<p><a href="/movies"> Home </a></p>  
+<nav>
+  <ul>
+    <li><a href="/actors?page=1"> Home </a></li>
+    <% if @page > 1 %>
+      <li><a href="/actors?page=<%= @page - 1 %>"> Previous Page </a></li>
+    <% end %>
+    <li><a href="/actors?page=<%= @page + 1 %>"> Next Page </a></li>
+  </ul>
+</nav>  
