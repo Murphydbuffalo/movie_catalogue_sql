@@ -1,0 +1,14 @@
+<h1> Welcome to the Movie Catalogue! </h1>
+<h2><%= @movie[0]["title"] %></h2>
+
+<p><%= "#{@movie[0]["title"]}, received an average rating of #{@movie[0]["rating"]}/100 on Rotten Tomatoes." %></p>
+<p><%= "#{@movie[0]["genre"]}, released in #{@movie[0]["year"]} by #{@movie[0]["studio"]}." %></p>
+
+<p><%= @movie[0]["synopsis"] %></p>
+
+<h3> Cast </h3>
+<ul>
+  <% @movie.each do |movie| %>
+    <li><%= "#{movie["actor"]}" %></li>
+  <% end %>
+</ul>   

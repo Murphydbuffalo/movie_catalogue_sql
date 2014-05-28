@@ -1,0 +1,7 @@
+<h1> Welcome to the Movie Catalogue! </h1>
+<h2> Actors </h2>
+<ul>
+  <% @actors.each do |actor| %>
+    <li><%= "#{actor["name"]}" %></li>
+  <% end %>
+</ul>  

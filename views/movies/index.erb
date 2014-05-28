@@ -1,0 +1,10 @@
+<h1> Welcome to the Movie Catalogue! </h1>
+<h2> All Movies </h2>
+<ul>
+  <% @movies.each do |movie| %>
+    <li><%= "#{movie["title"]} - #{movie["year"]}" %></li>
+    <ul>
+      <li><%= "#{movie["genre"]}  -  Rating:  #{movie["rating"]}/100" %> </li>
+     </ul>
+  <% end %>
+</ul>  

@@ -1,0 +1,8 @@
+<h1> Welcome to the Movie Catalogue! </h1>
+<h2><%= @actor[0]["name"] %></h2>
+
+<ul>
+  <% @actor.each do |appearance| %>
+    <li><%= "#{appearance["character"]} - #{appearance["title"]}" %></li>
+  <% end %>
+</ul>  
