@@ -9,6 +9,8 @@
 <h3> Cast </h3>
 <ul>
   <% @movie.each do |movie| %>
-    <li><%= "#{movie["actor"]}" %></li>
+    <li><a href="/actors/<%= movie["id"] %>"> <%= "#{movie["actor"]}" %> </a></li>
   <% end %>
 </ul>   
+
+<p><a href="/movies"> Home </a></p> 

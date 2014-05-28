@@ -3,6 +3,8 @@
 
 <ul>
   <% @actor.each do |appearance| %>
-    <li><%= "#{appearance["character"]} - #{appearance["title"]}" %></li>
+    <li><%= "#{appearance["character"]} -" %> <a href="/movies/<%= appearance["id"] %>"> <%= appearance["title"] %> </a></li>
   <% end %>
 </ul>  
+
+<p><a href="/movies"> Home </a></p> 
