@@ -1,23 +1,31 @@
-<h1> Welcome to the Movie Catalogue! </h1>
-<h2> All Actors </h2>
+<link rel="stylesheet" href="/styles.css">
+<body>
+  <h1> Welcome to the Movie Catalogue! </h1>
+  <h2> All Actors </h2>
 
-<form action="/actors" method="get">
-  <input id="query" name="query" type="text"> 
-  <input type="submit" value="Search Actors"> 
-</form>
+  <form action="/actors" method="get">
+    <input id="query" name="query" type="text"> 
+    <input type="submit" value="Search Actors"> 
+  </form>
 
-<ul>
-  <% @actors.each do |actor| %>
-    <li><a href="/actors/<%= actor["id"] %>"> <%= "#{actor["name"]}" %></a> <%= "(#{actor["count"]} films)" %></li>
-  <% end %>
-</ul>
-
-<nav>
-  <ul>
-    <li><a href="/actors?page=1"> Home </a></li>
-    <% if @page > 1 %>
-      <li><a href="/actors?page=<%= @page - 1 %>"> Previous Page </a></li>
+  <table class="content">
+    <% @actors.each do |actor| %>
+      <tr>
+        <td>
+          <a href="/actors/<%= actor["id"] %>"> <%= "#{actor["name"]}" %></a>
+        </td> 
+        <td> <%= "#{actor["count"]} film(s)" %> </td>
+      </tr>
     <% end %>
-    <li><a href="/actors?page=<%= @page + 1 %>"> Next Page </a></li>
-  </ul>
-</nav>  
+  </table>
+
+  <nav>
+    <ul>
+      <li><a href="/movies?page=1"> Home </a></li>
+      <% if @page > 1 %>
+        <li><a href="/actors?page=<%= @page - 1 %>"> Previous Page </a></li>
+      <% end %>
+      <li><a href="/actors?page=<%= @page + 1 %>"> Next Page </a></li>
+    </ul>
+  </nav>  
+</body>  

@@ -1,10 +1,22 @@
-<h1> Welcome to the Movie Catalogue! </h1>
-<h2><%= @actor[0]["name"] %></h2>
+<link rel="stylesheet" href="/styles.css">
+<body>
+  <h1> Welcome to the Movie Catalogue! </h1>
+  <h2><%= @actor[0]["name"] %></h2>
 
-<ul>
-  <% @actor.each do |appearance| %>
-    <li><%= "#{appearance["character"]} -" %> <a href="/movies/<%= appearance["id"] %>"> <%= appearance["title"] %> </a></li>
-  <% end %>
-</ul>  
+  <table class="content">
+    <th> Character </th>
+    <th> Film </th>
+    <% @actor.each do |appearance| %>
+      <tr>
+        <td><%= "#{appearance["character"]}" %></td> 
+        <td> 
+          <a href="/movies/<%= appearance["id"] %>"> 
+            <%= appearance["title"] %>
+          </a>
+         </td>
+       </tr>
+    <% end %>
+  </table>  
 
-<p><a href="/movies"> Home </a></p> 
+	<p><a href="/movies"> Home </a></p> 
+</body>

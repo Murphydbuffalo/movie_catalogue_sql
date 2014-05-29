@@ -1,0 +1,27 @@
+body {text-align: center;
+      background: rgba(186, 209, 238, .5);
+      font: 1.1em calibri;}
+
+a,
+a:visited {color: black;}
+
+a:visited {font-style: italic;}
+
+a:hover {font-weight: bold;}
+
+nav li,
+.sort li {display: inline-block;
+          padding: .5em;}
+
+table {margin: auto;
+       border: 1px dashed black;}
+
+table a {text-decoration: none;}
+
+
+th,
+td {padding: .5em;
+    border: 1px solid black;}
+
+
+
